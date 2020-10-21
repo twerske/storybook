@@ -1,13 +1,13 @@
-import interpret from 'interpret';
+import interpret, { Extension } from 'interpret';
 import path from 'path';
 import { logger } from '@storybook/node-logger';
 import { getInterpretedFileWithExt } from './interpret-files';
 
 // The code based on https://github.com/webpack/webpack-cli/blob/ca504de8c7c0ea66278021b72fa6a953e3ffa43c/bin/convert-argv
 
-const compilersState = new Map();
+const compilersState = new Map<unknown, number>();
 
-function registerCompiler(moduleDescriptor: any): number {
+function registerCompiler(moduleDescriptor: Extension): number {
   if (!moduleDescriptor) {
     return 0;
   }

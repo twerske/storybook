@@ -15,8 +15,8 @@ function removeReactHmre(presets: string[]) {
 function loadFromPath(babelConfigPath: string) {
   let config;
   const error: {
-    js?: any;
-    json?: any;
+    js?: Error;
+    json?: Error;
   } = {};
 
   if (fs.existsSync(babelConfigPath)) {
